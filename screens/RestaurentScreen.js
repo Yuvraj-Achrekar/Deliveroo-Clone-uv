@@ -16,6 +16,7 @@ export default function RestaurentScreen() {
 			short_description,
 			dishes,
 			long,
+			lat,
 		},
 	} = useRoute();
 

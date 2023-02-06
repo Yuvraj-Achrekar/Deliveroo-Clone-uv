@@ -18,6 +18,7 @@ import {
 import Categories from "../components/Categories";
 import FeaturedRow from "../components/FeaturedRow";
 import sanityClient from "../sanity";
+import SafeViewAndroid from "../SafeViewAndroid";
 
 export default function HomeScreen() {
 	const navigation = useNavigation();
@@ -46,7 +47,9 @@ export default function HomeScreen() {
 	}, []);
 
 	return (
-		<SafeAreaView className="bg-white pt-5">
+		<SafeAreaView
+			style={SafeViewAndroid.AndroidSafeArea}
+			className="bg-white pt-5">
 			{/* {header} */}
 			<View className="flex-row pb-3 items-center mx-4 space-x-2">
 				<Image
@@ -73,7 +76,10 @@ export default function HomeScreen() {
 				<AdjustmentsVerticalIcon color="#00CCBB" />
 			</View>
 			{/* Body */}
-			<ScrollView className="bg-gray-100">
+			<ScrollView
+				vertical
+				showsVerticalScrollIndicator={false}
+				className="bg-gray-100">
 				{/* Categories */}
 				<Categories />
 				{/* Featured */}

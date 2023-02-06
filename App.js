@@ -11,12 +11,10 @@ const Stack = createNativeStackNavigator();
 export default function App() {
 	return (
 		<NavigationContainer>
-			<View style={SafeViewAndroid.AndroidSafeArea}>
-				<Stack.Navigator initialRouteName="Home">
-					<Stack.Screen name="Home" component={HomeScreen} />
-					<Stack.Screen name="Restaurent" component={RestaurentScreen} />
-				</Stack.Navigator>
-			</View>
+			<Stack.Navigator initialRouteName="Home">
+				<Stack.Screen name="Home" component={HomeScreen} />
+				<Stack.Screen name="Restaurent" component={RestaurentScreen} />
+			</Stack.Navigator>
 		</NavigationContainer>
 	);
 }

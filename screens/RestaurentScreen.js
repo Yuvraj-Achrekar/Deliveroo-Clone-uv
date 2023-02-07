@@ -13,7 +13,6 @@ import { urlFor } from "../sanity";
 import { ArrowLeftIcon, StarIcon } from "react-native-heroicons/solid";
 import {
 	ChevronRightIcon,
-	MapIcon,
 	MapPinIcon,
 	QuestionMarkCircleIcon,
 } from "react-native-heroicons/outline";
@@ -91,10 +90,10 @@ export default function RestaurentScreen() {
 					<DishRow
 						key={dish._id}
 						id={dish._id}
-						name={dishes.name}
-						description={dishes.short_description}
-						price={dishes.price}
-						image={dishes.image}
+						name={dish.name}
+						description={dish.short_description}
+						price={dish.price}
+						image={dish.image}
 					/>
 				))}
 			</View>

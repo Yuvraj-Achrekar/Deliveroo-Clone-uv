@@ -10,11 +10,11 @@ const FeaturedRow = ({ title, description, id }) => {
 	useEffect(() => {
 		sanityClient
 			.fetch(
-				`*[_type == "featured" && _id==$id]{
+				`*[_type == "featured" && _id == $id]{
 		...,
 		restaurents[]->{
 		  ...,
-		  dishes[],
+		  dishes[]->,
 			type->{name}
 			}
 	  }[0]

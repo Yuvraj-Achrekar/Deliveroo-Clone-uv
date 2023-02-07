@@ -37,7 +37,7 @@ export default function HomeScreen() {
 			...,
 			restaurents[]->{
 			  ...,
-			  dishes[],
+			  dishes[]->,
 				}
 		  }`
 			)

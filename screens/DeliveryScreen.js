@@ -12,7 +12,7 @@ import { selectRestaurent } from "../features/restaurentSlice";
 import SafeViewAndroid from "../SafeViewAndroid";
 import { XMarkIcon } from "react-native-heroicons/solid";
 import * as Progress from "react-native-progress";
-import MapView from "react-native-maps";
+import MapView, { Marker } from "react-native-maps";
 
 const DeliveryScreen = () => {
 	const navigation = useNavigation();
@@ -46,15 +46,39 @@ const DeliveryScreen = () => {
 						Your Order at {restaurent.title} is being prepared{" "}
 					</Text>
 				</View>
-				<MapView
-					initialRegion={{
+			</SafeAreaView>
+			<MapView
+				initialRegion={{
+					latitude: restaurent.lat,
+					longitude: restaurent.long,
+					latitudeDelta: 0.005,
+					longitudeDelta: 0.005,
+				}}
+				className="flex-1 -mt-10 z-0"
+				mapType="mutedStandard">
+				<Marker
+					coordinate={{
 						latitude: restaurent.lat,
 						longitude: restaurent.long,
-						latitudeDelta: 0.005,
-						longitudeDelta: 0.005,
 					}}
-					className="flex-1 -mt-10 z-0"
-					mapType="mutedStandard"></MapView>
+					title={restaurent.title}
+					description={restaurent.short_description}
+					identifier="origin"
+					pinColor="red"
+				/>
+			</MapView>
+			<SafeAreaView className="bg-white flex-row items-center space-x-5 h-28">
+				<Image
+					source={{
+						uri: "https://links.papareact.com/wru",
+					}}
+					className="bg-gray-300 h-12 w-12 p-4 rounded-full ml-5"
+				/>
+				<View className="flex-1">
+					<Text className="text-lg">Yuvraj Achrekar</Text>
+					<Text className="text-gray-400">Your Rider</Text>
+				</View>
+				<Text className="text-[#00CCBB] text-lg mr-5 font-bold">Call </Text>
 			</SafeAreaView>
 		</View>
 	);

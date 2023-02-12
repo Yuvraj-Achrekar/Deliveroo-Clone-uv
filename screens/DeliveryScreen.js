@@ -4,12 +4,12 @@ import {
 	SafeAreaView,
 	TouchableOpacity,
 	Image,
+	StatusBar,
 } from "react-native";
 import React from "react";
 import { useNavigation } from "@react-navigation/native";
 import { useSelector } from "react-redux";
 import { selectRestaurent } from "../features/restaurentSlice";
-import SafeViewAndroid from "../SafeViewAndroid";
 import { XMarkIcon } from "react-native-heroicons/solid";
 import * as Progress from "react-native-progress";
 import MapView, { Marker } from "react-native-maps";
@@ -20,7 +20,11 @@ const DeliveryScreen = () => {
 
 	return (
 		<View className="bg-[#00CCBB] flex-1">
-			<SafeAreaView style={SafeViewAndroid.AndroidSafeArea} className="z-50">
+			<SafeAreaView
+				style={{
+					paddingTop: Platform.OS === "android" ? StatusBar.currentHeight : 0,
+				}}
+				className="z-50">
 				<View className="flex-row justify-between items-center p-5">
 					<TouchableOpacity onPress={() => navigation.navigate("Home")}>
 						<XMarkIcon size={30} color="white" />
